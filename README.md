@@ -578,8 +578,6 @@ Flowchart showing the working of our application
 https://drive.google.com/drive/folders/1ZFjlUiieiWc1lbThgQc-AWUdHG7QPwRZ?usp=drive_link
 The video explains the working of the application or the website
 
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
 Akshay J Nair: Designed and developed the university portal interface, dashboard layout, service cards, prank redirects, and overall project concept.
