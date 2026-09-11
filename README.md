@@ -6,12 +6,12 @@
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [Team Vaah]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
+- Team Lead: [Akshay J Nair] - [Sahrdaya College of Engineering and Technology]
+- Member 2: [Adithya P] - [Sahrdaya College of Engineering and Technology]
 - Member 3: [Name] - [College]
 
 ### Project Description
