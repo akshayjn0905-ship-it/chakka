@@ -12,7 +12,7 @@
 ### Team Members
 - Team Lead: [Akshay J Nair] - [Sahrdaya College of Engineering and Technology]
 - Member 2: [Adithya P] - [Sahrdaya College of Engineering and Technology]
-- Member 3: [Name] - [College]
+
 
 ### Project Description
 [A completely legitimate-looking University Academic Services Portal designed to provide students with everything they could possibly need — study materials, homework, assignments, research, results, and more.
