@@ -1,1 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Academic Services Portal</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+    font-family:Inter,Arial,Helvetica,sans-serif;
+    background:#08111f;
+    color:#fff;
+    overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 80% 20%,rgba(50,139,89,.22),transparent 30%),
+      radial-gradient(circle at 15% 80%,rgba(66,108,168,.22),transparent 32%),
+      linear-gradient(135deg,#08111f,#101f35 55%,#0c1829);
+}
+.grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:55px 55px;
+    mask-image:linear-gradient(to bottom,#000,transparent);
+}
+.glow{
+    position:absolute;width:420px;height:420px;border-radius:50%;
+    background:rgba(50,139,89,.09);filter:blur(70px);
+    right:-120px;top:-120px;
+}
+nav{
+    position:absolute;top:0;left:0;right:0;height:78px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 7%;
+    z-index:5;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(8,17,31,.35);
+    backdrop-filter:blur(14px);
+}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.5px}
+.logo-mark{
+    width:40px;height:40px;border-radius:9px;background:#f2c94c;
+    color:#111c31;display:grid;place-items:center;font-size:20px;
+}
+.nav-links{display:flex;gap:28px;color:#aab7ca;font-size:13px}
+.nav-links a:hover{color:#fff}
+
+.hero-content{
+    width:min(1100px,90%);
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:70px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+    padding-top:55px;
+}
+.badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:7px 11px;border:1px solid rgba(109,224,155,.25);
+    border-radius:30px;background:rgba(50,139,89,.1);
+    color:#79dda0;font-size:11px;font-weight:700;letter-spacing:.7px;
+    margin-bottom:22px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:#43d17b;box-shadow:0 0 12px #43d17b}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-2.5px}
+h1 span{color:#6de09b}
+.hero-text{
+    margin-top:22px;max-width:610px;color:#aebbd0;
+    font-size:16px;line-height:1.75;
+}
+.buttons{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{
+    padding:13px 20px;border-radius:8px;font-size:13px;font-weight:800;
+    cursor:pointer;transition:.2s;border:1px solid transparent;
+}
+.primary{background:#328b59;color:#fff}
+.primary:hover{background:#277247;transform:translateY(-2px)}
+.secondary{border-color:rgba(255,255,255,.15);color:#dbe4f0;background:rgba(255,255,255,.04)}
+.secondary:hover{background:rgba(255,255,255,.08)}
+
+.dashboard-preview{
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:17px;padding:14px;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    transform:perspective(1000px) rotateY(-5deg) rotateX(2deg);
+}
+.window{
+    background:#f4f6fa;border-radius:10px;overflow:hidden;color:#172033;
+}
+.window-top{
+    height:38px;background:#111c31;display:flex;align-items:center;gap:6px;padding:0 13px;
+}
+.window-top i{width:7px;height:7px;border-radius:50%;background:#607087}
+.fake-body{display:grid;grid-template-columns:75px 1fr;min-height:360px}
+.fake-side{background:#111c31}
+.fake-main{padding:18px}
+.fake-welcome{
+    height:72px;border-radius:8px;
+    background:linear-gradient(120deg,#182b4b,#233f69);margin-bottom:12px;
+}
+.fake-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.fake-card{height:60px;background:#fff;border:1px solid #e1e5eb;border-radius:7px}
+.fake-services{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.fake-service{height:92px;background:#fff;border:1px solid #e1e5eb;border-radius:7px}
+
+section.info{
+    background:#f4f6fa;color:#172033;padding:100px 7%;
+}
+.section-inner{max-width:1100px;margin:auto}
+.eyebrow{font-size:11px;color:#328b59;font-weight:800;letter-spacing:1.5px}
+.info h2{font-size:34px;margin:10px 0 14px}
+.info-intro{color:#6e7b8e;max-width:650px;line-height:1.7;font-size:14px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+.feature{
+    background:#fff;border:1px solid #e1e5eb;border-radius:12px;padding:24px;
+    transition:.2s;
+}
+.feature:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(21,34,54,.08)}
+.icon{
+    width:43px;height:43px;border-radius:9px;background:#edf2f9;
+    display:grid;place-items:center;font-size:19px;margin-bottom:18px;
+}
+.feature h3{font-size:15px;margin-bottom:8px}
+.feature p{font-size:12px;line-height:1.6;color:#788496}
+
+.cta{
+    margin-top:70px;padding:45px;border-radius:15px;
+    color:#fff;background:linear-gradient(120deg,#182b4b,#233f69);
+    display:flex;justify-content:space-between;align-items:center;gap:25px;
+}
+.cta h2{font-size:25px;margin:0 0 7px}
+.cta p{font-size:12px;color:#c4d0e2}
+
+footer{
+    background:#08111f;color:#7f8da2;text-align:center;
+    padding:28px 7%;font-size:10px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+@media(max-width:850px){
+    .nav-links{display:none}
+    .hero-content{grid-template-columns:1fr;gap:40px}
+    .dashboard-preview{max-width:600px;width:100%;margin:auto}
+    .features{grid-template-columns:1fr}
+    .cta{display:block}
+    .cta .btn{margin-top:20px}
+}
+@media(max-width:520px){
+    nav{padding:0 5%}
+    .hero-content{width:90%;padding-top:70px}
+    h1{letter-spacing:-1.5px}
+    .hero-text{font-size:14px}
+    .fake-body{min-height:270px}
+    section.info{padding:70px 5%}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero" id="home">
+    <div class="grid"></div>
+    <div class="glow"></div>
+
+    <nav>
+        <a class="logo" href="#home">
+            <div class="logo-mark">U</div>
+            <div>UNIVERSITY PORTAL</div>
+        </a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#access">Access</a>
+        </div>
+    </nav>
+
+    <div class="hero-content">
+        <div>
+            <div class="badge"><span class="dot"></span> ALL SYSTEMS OPERATIONAL</div>
+            <h1>Your academic life.<br><span>One portal.</span></h1>
+            <p class="hero-text">
+                A centralized student workspace for academic resources, assignments,
+                projects, deadlines, research and focus sessions — all in one place.
+            </p>
+
+            <div class="buttons">
+                <!-- Change portal.html to the filename of your existing portal code -->
+                <a class="btn primary" href="portal.html">ENTER STUDENT PORTAL →</a>
+                <a class="btn secondary" href="#features">EXPLORE FEATURES</a>
+            </div>
+        </div>
+
+        <div class="dashboard-preview" aria-label="Portal preview">
+            <div class="window">
+                <div class="window-top">
+                    <i></i><i></i><i></i>
+                </div>
+                <div class="fake-body">
+                    <div class="fake-side"></div>
+                    <div class="fake-main">
+                        <div class="fake-welcome"></div>
+                        <div class="fake-stats">
+                            <div class="fake-card"></div>
+                            <div class="fake-card"></div>
+                            <div class="fake-card"></div>
+                        </div>
+                        <div class="fake-services">
+                            <div class="fake-service"></div>
+                            <div class="fake-service"></div>
+                            <div class="fake-service"></div>
+                            <div class="fake-service"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="info" id="features">
+    <div class="section-inner">
+        <div class="eyebrow">BUILT FOR STUDENTS</div>
+        <h2>Everything you need to stay on track.</h2>
+        <p class="info-intro">
+            The portal brings your academic services into a clean, centralized
+            dashboard designed to make the important stuff easy to find.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="icon">📚</div>
+                <h3>Academic Resources</h3>
+                <p>Quick access to study materials, research databases, project workspaces and learning resources.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">📊</div>
+                <h3>Track Your Progress</h3>
+                <p>Keep an eye on attendance, assignments, academic scores and upcoming deadlines.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🧠</div>
+                <h3>Focus Environment</h3>
+                <p>When procrastination wins, the portal can put you into a dedicated 25-minute focus session.</p>
+            </div>
+        </div>
+
+        <div class="cta" id="access">
+            <div>
+                <h2>Ready to enter?</h2>
+                <p>Your student dashboard is waiting.</p>
+            </div>
+            <a class="btn primary" href="portal.html">OPEN DASHBOARD →</a>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="about" style="padding-top:0">
+    <div class="section-inner">
+        <div class="eyebrow">UNIVERSITY ACADEMIC SERVICES</div>
+        <h2>A serious-looking portal for very serious academics.</h2>
+        <p class="info-intro">
+            Designed around the same University Academic Services Portal experience:
+            a professional dashboard, centralized services and a dedicated focus mode.
+        </p>
+    </div>
+</section>
+
+<footer>
+    University Academic Services Portal • Student Information System v4.8.2
+    <br><br>
+    © 2026 Academic Services Division
+</footer>
+
+</body>
+</html>
 
