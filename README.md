@@ -555,7 +555,7 @@ While the interface is designed to resemble a serious university academic portal
 Overall, the project combines **frontend development, JavaScript event handling, browser APIs, responsive UI design, and creative user interaction** into a single application.
 
 
-# Screenshots (Add at least 3)
+# Screenshots 
 <img width="1600" height="870" alt="WhatsApp Image 2026-09-12 at 3 16 48 AM" src="https://github.com/user-attachments/assets/ba419945-9499-4fe4-8ecb-8aea58259fe2" />
 
 *Front page of our application
